@@ -81,7 +81,7 @@ function EyesSourceMap(options) {
   }
 
   return {
-    name: 'vite-plugin-eyes-upload-map',
+    name: 'eyes-sourcemap-vite',
     apply: 'build',
 
     // Vite 插件的 `generateBundle` 钩子

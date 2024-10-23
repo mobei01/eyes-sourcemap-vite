@@ -1,17 +1,30 @@
 {
-    "name": "eyes-sourcemap-vite",
-    "version": "1.0.1",
-    "description": "eyes-sourcemap-vite",
-    "author": "mobei",
-    "main": "index.js",
-    "files": [
-      "dist"
-    ],
-    "repository": {
-      "type": "git",
-      "url": ""
-    },
-    "keywords": [],
-    "license": "ISC",
-    "dependencies": {}
+  "name": "eyes-sourcemap-vite",
+  "version": "1.0.2",
+  "description": "A Vite plugin for uploading source maps to monitoring services. Simplify source map management and error tracking in production builds.",
+  "author": "mobei",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "type": "module", 
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mobei01/eyes-sourcemap-vite"
+  },
+  "keywords": [
+    "sourcemap",
+    "sourcemap-upload",
+    "source-map-plugin",
+    "vite-source-map",
+    "vite-plugin"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "rollup": "^4.24.0"
   }
+}

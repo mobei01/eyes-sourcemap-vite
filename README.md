@@ -1,45 +1,55 @@
 <div align="center">
-    <p>eyes-sourcemap-vite</p>
+  <h1>eyes-sourcemap-vite</h1> <p>A Vite plugin for uploading source maps during build processes, supporting error tracking and debugging in production.</p>
 </div>
 
-## 功能
+📋 Introduction
 
-1、打包时自动上传sourceMap,在打包完成后，输出dist文件前运行
+eyes-sourcemap-vite is a powerful Vite plugin that automatically uploads source maps at build time, enabling efficient debugging and error tracking. It executes after the build process, before the final output of the dist folder.
 
-注意：
-1、需要配置sourcemap，否则无法上传sourceMap
-2、本插件需要配套编写服务端上传接口
-3、本插件支持vite项目
+⚠️ Important Notes
+
+Source maps must be enabled in your Vite build, or the plugin won't function.
+You need to provide a server-side API to receive uploaded source maps.
+This plugin is specifically designed for Vite projects.
 
 
 
-## 安装
+🚀 Installation
+
+Install the plugin via npm:
 
 ```bash
-$ npm install eyes-sourcemap-vite -D
+npm install eyes-sourcemap-vite --save-dev
 ```
 
-## 配置
+⚙️ Configuration
+
+Below is an example of how to configure the plugin in your vite.config.js:
 
 ```bash
 // vite.config.js
-import EyesSourceMap from 'eyes-sourcemap-vite'
+import { defineConfig } from 'vite';
+import EyesSourceMap from 'eyes-sourcemap-vite';
 
-export default defineConfig(({ mode }) => {
-  return {
-    plugins: [
-      new EyesSourceMap({
-        dsn: 'http://xxx', // 上传地址, 必填
-        token: '', // 项目id, 必填
-        uploadScript: ['vue-cli-service build --mode staging'], // 执行上报的构建命令, 选填
-        productionSourceMap: true, // 是否保留sourceMap, 选填，默认false不保留
-        concurrency: 6, // 上传最大并发数，选填，默认5
-        api: '' // 上传接口，选填,默认/api/upload/sourcemap
-      })
-    ],
-    build: {
-      sourcemap: 'hidden',
-    } 
+export default defineConfig(({ mode }) => ({
+  plugins: [
+    EyesSourceMap({
+      dsn: 'http://your-upload-url', // Required: API base URL for uploads
+      token: 'your-project-token',   // Required: Unique project identifier
+      uploadScript: ['vue-cli-service build --mode staging'], // Optional: Commands triggering upload
+      productionSourceMap: true,     // Optional: Retain source maps (default: false)
+      concurrency: 6,                 // Optional: Max upload concurrency (default: 5)
+      api: '/api/upload/sourcemap'   // Optional: API endpoint for uploads (default: /api/upload/sourcemap)
+    })
+  ],
+  build: {
+    sourcemap: 'hidden', // Ensure sourcemaps are generated
   }
-});
+}));
+
 ```
+
+🎯 When to Use This Plugin?
+
+Production Error Tracking: Upload source maps to your monitoring service for better stack traces in production.
+Efficient Debugging: Retain hidden source maps to debug production issues without exposing code to end-users.
