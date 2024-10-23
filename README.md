@@ -55,6 +55,7 @@ Production Error Tracking: Upload source maps to your monitoring service for bet
 Efficient Debugging: Retain hidden source maps to debug production issues without exposing code to end-users.
 
 📝 Changelog
+
 v1.0.2
 Initial release of the plugin.
 Support for concurrent uploads with customizable limits.
