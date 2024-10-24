@@ -21,6 +21,9 @@
     "vite-plugin"
   ],
   "license": "ISC",
+  "engines": {
+    "node": ">=16.20.0"
+  },
   "scripts": {
     "build": "rollup -c"
   },
