@@ -1,6 +1,6 @@
 {
   "name": "eyes-sourcemap-vite",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Vite plugin for uploading source maps to monitoring services. Simplify source map management and error tracking in production builds.",
   "author": "mobei",
   "main": "./dist/index.cjs",
