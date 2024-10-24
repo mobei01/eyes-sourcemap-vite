@@ -24,6 +24,10 @@
   "scripts": {
     "build": "rollup -c"
   },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "form-data": "^4.0.1"
+  },
   "devDependencies": {
     "rollup": "^4.24.0"
   }
